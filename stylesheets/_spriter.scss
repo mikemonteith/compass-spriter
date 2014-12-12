@@ -1,0 +1,32 @@
+$spriter-images: "sprites/*.png" !default;
+$spriter-spacing: 2px !default;
+
+$_spriter-icons: false;
+
+@mixin responsive-sprite($name){
+	@if $_spriter-icons{
+		//$_spriter-icons is already set
+	}@else{
+		$_spriter-icons : sprite-map($spriter-images, $spacing:$spriter-spacing) !global;
+	}
+	background-image:$_spriter-icons;
+	$totalHeight : image-height(sprite-path($_spriter-icons));
+	$totalWidth  : image-width(sprite-path($_spriter-icons));
+	$spriteHeight : image-height(sprite-file($_spriter-icons, $name));
+	$spriteWidth  : image-width(sprite-file($_spriter-icons, $name));
+	$spritePosX : nth(sprite-position($_spriter-icons, $name), 1) + 0px;
+	$spritePosY : nth(sprite-position($_spriter-icons, $name), 2) + 0px;
+
+	$background-position-x:0;
+	$background-position-y:0;
+
+	background-size:100% * ($totalWidth / $spriteWidth) 100% * ($totalHeight / $spriteHeight);
+	@if ($totalHeight - $spriteHeight > 0){
+		$background-position-y:100% * ((-$spritePosY / ($totalHeight - $spriteHeight)));
+	}
+	@if ($totalWidth - $spriteWidth > 0){
+		$background-position-x:100% * ((-$spritePosX / ($totalWidth - $spriteWidth)));
+	}
+	background-position:$background-position-x $background-position-y;
+	background-repeat:no-repeat;
+}
