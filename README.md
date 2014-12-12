@@ -1,6 +1,6 @@
 # Compass Spriter
 
-A *responsive* sprite sheet generator plugin for [Compass](http://compass-style.org/).
+A *responsive* [sprite sheet](http://css-tricks.com/css-sprites/) generator plugin for [Compass](http://compass-style.org/).
 
 There are many sprite generators out there, and even one [built in to compass](http://compass-style.org/reference/compass/helpers/sprites/#sprite-map). However, none of these sprite sheet generators can be applied to responsively sized elements.
 If you have an element with a percentage width or height, you will need a percentage background-position, which this plugin provides.
@@ -38,8 +38,9 @@ div#menu-icon{
 
 ##Options
 
-You can configure Spriter's settings (defaults shown below) 
-If you want to override these settings, you _must_ set the variables before the first use of @include spriter();
+You can configure Spriter's settings (defaults shown below).
+
+If you want to override these settings, you _must_ set the variables before the first use of `@include spriter();`
 
 ```scss
 //glob of images to use in the sprite sheet
