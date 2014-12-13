@@ -10,22 +10,22 @@ $_spriter-icons: false;
 		$_spriter-icons : sprite-map($spriter-images, $spacing:$spriter-spacing) !global;
 	}
 	background-image:$_spriter-icons;
-	$totalHeight : image-height(sprite-path($_spriter-icons));
-	$totalWidth  : image-width(sprite-path($_spriter-icons));
-	$spriteHeight : image-height(sprite-file($_spriter-icons, $name));
-	$spriteWidth  : image-width(sprite-file($_spriter-icons, $name));
-	$spritePosX : nth(sprite-position($_spriter-icons, $name), 1) + 0px;
-	$spritePosY : nth(sprite-position($_spriter-icons, $name), 2) + 0px;
+	$total-height : image-height(sprite-path($_spriter-icons));
+	$total-width  : image-width(sprite-path($_spriter-icons));
+	$sprite-height : image-height(sprite-file($_spriter-icons, $name));
+	$sprite-width  : image-width(sprite-file($_spriter-icons, $name));
+	$sprite-pos-x : nth(sprite-position($_spriter-icons, $name), 1) + 0px;
+	$sprite-pos-y : nth(sprite-position($_spriter-icons, $name), 2) + 0px;
 
 	$background-position-x:0;
 	$background-position-y:0;
 
-	background-size:100% * ($totalWidth / $spriteWidth) 100% * ($totalHeight / $spriteHeight);
-	@if ($totalHeight - $spriteHeight > 0){
-		$background-position-y:100% * ((-$spritePosY / ($totalHeight - $spriteHeight)));
+	background-size:100% * ($total-width / $sprite-width) 100% * ($total-height / $sprite-height);
+	@if ($total-height - $sprite-height > 0){
+		$background-position-y:100% * ((-$sprite-pos-y / ($total-height - $sprite-height)));
 	}
-	@if ($totalWidth - $spriteWidth > 0){
-		$background-position-x:100% * ((-$spritePosX / ($totalWidth - $spriteWidth)));
+	@if ($total-width - $sprite-width > 0){
+		$background-position-x:100% * ((-$sprite-pos-x / ($total-width - $sprite-width)));
 	}
 	background-position:$background-position-x $background-position-y;
 	background-repeat:no-repeat;
