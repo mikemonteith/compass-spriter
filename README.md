@@ -52,7 +52,7 @@ $spriter-spacing: 2px;
 
 ##Browser support
 
-Browser support very generally good. Any browser that supports percentage-positioned background images should be fine.
+Browser support is generally very good. Any browser that supports percentage-positioned background images should be fine.
 
 ##Contributions
 
